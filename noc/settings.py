@@ -32,6 +32,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = [host.strip() for host in """
+localhost,
+127.0.0.1,
+noc-backend-pb7u.onrender.com,
+localhost:5173
+""".split(",")]
 
 # Application definition
 
@@ -138,11 +144,18 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:8080",
-    "http://localhost:5173",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://127.0.0.1:8080",
+#     "http://localhost:5173",
+# ]
+
+CORS_ALLOWED_ORIGINS = [origin.strip() for origin in """
+http://localhost:3000,
+http://127.0.0.1:3000,
+http://noc-backend-pb7u.onrender.com,
+http://localhost:5173
+""".split(",")]
 
 
 REST_FRAMEWORK = {
