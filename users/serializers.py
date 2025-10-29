@@ -128,14 +128,13 @@ class ChangePasswordSerializer(serializers.Serializer):
         user.save()
         return user
     
-    
+
+
 class PasswordResetRequestSerializer(serializers.Serializer):
     email = serializers.EmailField()
-
     def validate_email(self, value):
-        # we don't reveal whether email exists for security; but you can still check
+        # we keep validation minimal to avoid leaking info
         return value
-
 class PasswordResetConfirmSerializer(serializers.Serializer):
     uid = serializers.CharField(required=True)   # base64 uid from Django default pattern
     token = serializers.CharField(required=True)

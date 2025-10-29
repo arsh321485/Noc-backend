@@ -159,3 +159,7 @@ SIMPLE_JWT = {
     # add other settings if necessary
 }
 
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+SENDGRID_SENDER = os.getenv("SENDGRID_SENDER")
+SENDGRID_SENDER_NAME = os.getenv("SENDGRID_SENDER_NAME")
+FRONTEND_RESET_URL = os.getenv("FRONTEND_RESET_URL", "http://localhost:3000/reset")
