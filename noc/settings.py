@@ -30,13 +30,15 @@ SECRET_KEY = 'django-insecure-&%p24)y0^fo&9l442b63ixch!57s8x@u1mexu2m8ys039fcvm6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 ALLOWED_HOSTS = [host.strip() for host in """
 localhost,
 127.0.0.1,
 noc-backend-pb7u.onrender.com,
-localhost:5173
+localhost:5173,
+localhost:5174,
+noc-frontend-one.vercel.app
 """.split(",")]
 
 # Application definition
@@ -154,7 +156,9 @@ CORS_ALLOWED_ORIGINS = [origin.strip() for origin in """
 http://localhost:3000,
 http://127.0.0.1:3000,
 http://noc-backend-pb7u.onrender.com,
-http://localhost:5173
+http://localhost:5173,
+http://localhost:5174,
+https://noc-frontend-one.vercel.app
 """.split(",")]
 
 
